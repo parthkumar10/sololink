@@ -6,7 +6,8 @@ import ProfileEditor from "@/components/ProfileEditor";
 import LinkManager from "@/components/LinkManager";
 import LivePreview from "@/components/LivePreview";
 import { Button } from "@/components/ui/button";
-import { Link2, Copy, ExternalLink, LogOut, Check, Loader2 } from "lucide-react";
+import QRCodeModal from "@/components/QRCodeModal";
+import { Link2, Copy, ExternalLink, LogOut, Check, Loader2, QrCode } from "lucide-react";
 import { toast } from "sonner";
 
 export default function Dashboard() {
@@ -15,6 +16,7 @@ export default function Dashboard() {
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [qrOpen, setQrOpen] = useState(false);
 
   const publicUrl = `${window.location.origin}/${user.username}`;
 
@@ -68,6 +70,16 @@ export default function Dashboard() {
                 {copied ? <Check className="h-3.5 w-3.5 text-[#10B981]" /> : <Copy className="h-3.5 w-3.5" />}
               </Button>
             </div>
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full"
+              onClick={() => setQrOpen(true)}
+              data-testid="dashboard-qr-button"
+            >
+              <QrCode className="h-3.5 w-3.5 sm:mr-1.5" />
+              <span className="hidden sm:inline">QR</span>
+            </Button>
             <a href={`/${user.username}`} target="_blank" rel="noreferrer">
               <Button variant="outline" size="sm" className="rounded-full" data-testid="dashboard-view-public-button">
                 <ExternalLink className="h-3.5 w-3.5 sm:mr-1.5" />
@@ -128,6 +140,8 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
+
+      <QRCodeModal open={qrOpen} onOpenChange={setQrOpen} url={publicUrl} username={user.username} />
     </div>
   );
 }
