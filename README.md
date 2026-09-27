@@ -1,10 +1,10 @@
-# 🔗 OneLink
+# 🔗 SoloLink
 
-**OneLink** is a multi-user link-in-bio web application where users can create a personalized public profile and share their important links from a single page.
+**SoloLink** is a multi-user link-in-bio web application where users can create a personalized public profile and share their important links from a single page.
 
 ## 🚀 Live Demo
 
-**[Open OneLink](https://sololink.pages.dev)**
+**[Open SoloLink](https://sololink.pages.dev)**
 
 ## ✨ Features
 
