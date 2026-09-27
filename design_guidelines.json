@@ -1,0 +1,156 @@
+{
+  "project_info": {
+    "name": "SoloLink",
+    "description": "Ultra-fast, minimal, and tactile multi-user Link-in-Bio platform for creators, freelancers, and students.",
+    "context_type": "hybrid_app",
+    "file_type_extension": ".js"
+  },
+  "visual_identity": {
+    "archetype": "Swiss High-Contrast + Modern Tactile",
+    "theme": "Light mode primary with high-contrast obsidian dark elements for public cards and live preview toggles",
+    "color_palette": {
+      "primary": "#0F172A",
+      "primary_foreground": "#FFFFFF",
+      "accent": "#6366F1",
+      "accent_hover": "#4F46E5",
+      "accent_light": "#EEF2FF",
+      "success": "#10B981",
+      "background": "#FAFAF9",
+      "surface": "#FFFFFF",
+      "surface_border": "#E2E8F0",
+      "text_main": "#0F172A",
+      "text_muted": "#64748B",
+      "card_bg": "#FFFFFF",
+      "public_profile_bg": "gradient_or_clean_slate"
+    },
+    "typography": {
+      "headings": {
+        "font_family": "Plus Jakarta Sans, sans-serif",
+        "h1_hero": "text-4xl sm:text-5xl font-extrabold tracking-tight",
+        "h2_section": "text-2xl sm:text-3xl font-bold tracking-tight",
+        "h3_card": "text-lg sm:text-xl font-semibold"
+      },
+      "body": {
+        "font_family": "Inter, sans-serif",
+        "base": "text-base text-slate-700 leading-relaxed",
+        "small": "text-sm text-slate-500",
+        "xs_label": "text-xs font-semibold uppercase tracking-wider text-slate-400"
+      },
+      "monospace": {
+        "font_family": "JetBrains Mono, monospace",
+        "slug": "font-mono text-xs sm:text-sm bg-slate-100 text-slate-700 px-2 py-1 rounded border border-slate-200"
+      }
+    }
+  },
+  "layout_architecture": {
+    "dashboard_grid": "grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto p-4 sm:p-6 lg:p-8",
+    "dashboard_left_panel": "lg:col-span-7 space-y-8",
+    "dashboard_right_panel": "lg:col-span-5 sticky top-24 space-y-6 hidden lg:block",
+    "public_profile_layout": "min-h-screen bg-slate-50 flex flex-col items-center justify-between p-4 sm:p-6 md:p-12",
+    "public_card_container": "w-full max-w-md mx-auto space-y-6 bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-xl shadow-slate-200/50"
+  },
+  "screens_and_components": {
+    "auth_pages": {
+      "routes": ["/login", "/signup"],
+      "elements": [
+        "Brand Logo Header",
+        "Email/Password Auth Form",
+        "Unique Username Picker with real-time availability check indicator",
+        "Submit Button with spinner & micro-interaction",
+        "Toggle link between login and sign-up"
+      ]
+    },
+    "dashboard": {
+      "route": "/dashboard",
+      "header": {
+        "logo": "SoloLink logo",
+        "user_badge": "Avatar + Display Name",
+        "share_pill": "Public URL button with 1-click copy & QR Code modal trigger",
+        "logout_button": "Logout CTA"
+      },
+      "profile_editor": {
+        "avatar_upload": "Image file input with instant canvas/preview + drag-and-drop zone + clear button",
+        "display_name_input": "Input for creator display name",
+        "username_input": "Input for slug with live validation",
+        "bio_textarea": "Short bio text area with 160 char counter limit"
+      },
+      "link_management": {
+        "header": "Link Counter (e.g. '3 / 20 links added') + Progress bar",
+        "add_link_form": "Inputs for Title + URL + Add Button (with basic auto-title suggestion)",
+        "link_list": "Sortable/Reorderable cards with Up/Down arrow buttons, title/url inline editing, active toggle switch, and delete button",
+        "empty_state": "Visual state when 0 links exist with 'Add Sample Links' buttons (e.g. Twitter, Portfolio, Store)"
+      },
+      "live_preview": "Interactive Mobile Phone Mockup showing exactly how /:username renders in real-time"
+    },
+    "public_profile": {
+      "route": "/:username",
+      "elements": [
+        "Avatar with initial fallback if image fails or missing",
+        "Display Name with optional verification dot",
+        "Handle / Username with @prefix",
+        "Bio text block",
+        "Stack of tappable Link Buttons with favicon/icon indicator, external arrow icon, and hover elevation",
+        "Footer: 'Made with SoloLink • Create your free page'"
+      ]
+    },
+    "not_found": {
+      "route": "/* or missing username",
+      "elements": [
+        "Minimal illustration / graphic",
+        "Title: '@username is available!'",
+        "Description: 'This page hasn't been claimed on SoloLink yet.'",
+        "CTA Button: 'Claim this username on SoloLink' pointing to /signup"
+      ]
+    }
+  },
+  "testing_and_data_ids": {
+    "required_test_ids": [
+      "nav-brand-logo",
+      "nav-dashboard-link",
+      "nav-logout-button",
+      "auth-login-email-input",
+      "auth-login-password-input",
+      "auth-login-submit-button",
+      "auth-signup-email-input",
+      "auth-signup-password-input",
+      "auth-signup-username-input",
+      "auth-signup-submit-button",
+      "dashboard-share-url-pill",
+      "dashboard-copy-url-button",
+      "dashboard-view-public-button",
+      "profile-avatar-upload-input",
+      "profile-display-name-input",
+      "profile-username-input",
+      "profile-bio-textarea",
+      "profile-save-button",
+      "link-add-title-input",
+      "link-add-url-input",
+      "link-add-submit-button",
+      "link-counter-badge",
+      "link-item-card-{id}",
+      "link-item-delete-button-{id}",
+      "link-item-move-up-button-{id}",
+      "link-item-move-down-button-{id}",
+      "public-profile-avatar",
+      "public-profile-display-name",
+      "public-profile-bio",
+      "public-profile-link-card-{id}",
+      "not-found-claim-button"
+    ]
+  },
+  "image_urls": {
+    "sample_avatars": [
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwcG9ydHJhaXQlMjBjcmVhdGl2ZSUyMHBlcnNvbiUyMGF2YXRhcnxlbnwwfHx8fDE3OTA0OTc5ODZ8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1581841064838-a470c740e8ee?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwcG9ydHJhaXQlMjBjcmVhdGl2ZSUyMHBlcnNvbiUyMGF2YXRhcnxlbnwwfHx8fDE3OTA0OTc5ODZ8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1670012896865-f531c5fb65d9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwcG9ydHJhaXQlMjBjcmVhdGl2ZSUyMHBlcnNvbiUyMGF2YXRhcnxlbnwwfHx8fDE3OTA0OTc5ODZ8MA&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Follow email+password JWT backend auth and store token in localStorage or cookie.",
+    "Implement profile image upload as base64 string or stored file endpoint so user uploads directly show on public page.",
+    "Provide a full list of preset demo accounts in README / test state if needed, or pre-seeded dummy creators (e.g. /tharun, /alex, /sarah) for immediate instant testing.",
+    "Ensure max 20 links limit is strictly enforced with user-friendly alert or disabled input state when limit is reached.",
+    "Use sonner for notifications on actions like link copied, profile saved, link added, link deleted.",
+    "Ensure public profile (/username) renders lightning fast, completely mobile-first, and distraction-free with smooth button tap states."
+  ]
+}
